@@ -454,6 +454,16 @@ impl Executor {
         if let Some(error) = &result.error {
             eprintln!("  {}", style(error).red());
         }
+
+        // Print command output if present
+        if let Some(output) = &result.output {
+            let trimmed = output.trim();
+            if !trimmed.is_empty() {
+                for line in trimmed.lines() {
+                    println!("  {}", line);
+                }
+            }
+        }
     }
 
     /// Print execution summary

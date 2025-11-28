@@ -174,14 +174,15 @@ impl Config {
     /// Validate the configuration
     fn validate(&self) -> Result<()> {
         for (name, task) in &self.tasks {
-            // Task must have either `run` or `script`, not both
+            // Task must have either `run`, `script`, or dependencies
             let has_run = !task.run.is_empty();
             let has_script = task.script.is_some();
+            let has_depends = !task.depends.is_empty();
 
-            if !has_run && !has_script {
+            if !has_run && !has_script && !has_depends {
                 return Err(YatrError::InvalidTask {
                     task: name.clone(),
-                    reason: "Task must have either 'run' commands or a 'script'".to_string(),
+                    reason: "Task must have 'run' commands, 'script', or 'depends'".to_string(),
                 });
             }
 
