@@ -31,8 +31,8 @@ cargo install yatr
 Or build from source:
 
 ```bash
-git clone https://github.com/cargopete/steppe
-cd steppe
+git clone https://github.com/cargopete/yatr
+cd yatr
 cargo install --path .
 ```
 
