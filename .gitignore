@@ -1,0 +1,10 @@
+/target
+/Cargo.lock
+/.steppe
+*.swp
+*.swo
+*~
+.DS_Store
+.idea/
+.vscode/
+*.log
