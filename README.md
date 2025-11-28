@@ -8,9 +8,9 @@ yatr build       # Build with dependencies
 yatr --watch test  # Re-run on file changes
 ```
 
-## Why YATR?
+## Why yatr?
 
-| Feature | Make | Just | cargo-make | **YATR** |
+| Feature | Make | Just | cargo-make | **yatr** |
 |---------|------|------|------------|------------|
 | Simple config | ❌ | ✅ | ⚠️ | ✅ |
 | Parallel execution | ❌ | ✅ | ✅ | ✅ |
@@ -20,7 +20,7 @@ yatr --watch test  # Re-run on file changes
 | Watch mode | ❌ | ❌ | ❌ | ✅ |
 | Zero runtime deps | N/A | ✅ | ❌ | ✅ |
 
-YATR sits in the sweet spot: **simpler than cargo-make**, **more powerful than just**.
+yatr sits in the sweet spot: **simpler than cargo-make**, **more powerful than just**.
 
 ## Installation
 
@@ -203,7 +203,7 @@ Commands:
   watch    Watch for changes and re-run
   graph    Show task dependency graph
   cache    Manage task cache
-  init     Create YATR.toml template
+  init     Create yatr.toml template
   check    Validate configuration
 
 Options:
