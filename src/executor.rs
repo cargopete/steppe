@@ -205,16 +205,22 @@ impl Executor {
             .clone()
             .unwrap_or_else(|| exec_config.cwd.clone());
 
+        // Use task-level shell setting if specified, otherwise use exec_config
+        let mut task_exec_config = exec_config.clone();
+        if task.config.shell.unwrap_or(false) {
+            task_exec_config.shell = true;
+        }
+
         let result = if let Some(script) = &task.config.script {
             // Execute Rhai script
             Self::execute_script(&task.name, script, &env, &cwd).await
         } else if task.config.parallel {
             // Execute commands in parallel
-            Self::execute_commands_parallel(&task.name, &task.config.run, &env, &cwd, exec_config)
+            Self::execute_commands_parallel(&task.name, &task.config.run, &env, &cwd, &task_exec_config)
                 .await
         } else {
             // Execute commands sequentially
-            Self::execute_commands_sequential(&task.name, &task.config.run, &env, &cwd, exec_config)
+            Self::execute_commands_sequential(&task.name, &task.config.run, &env, &cwd, &task_exec_config)
                 .await
         };
 
