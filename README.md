@@ -31,7 +31,7 @@ cargo install steppe
 Or build from source:
 
 ```bash
-git clone https://github.com/yourusername/steppe
+git clone https://github.com/cargopete/steppe
 cd steppe
 cargo install --path .
 ```
