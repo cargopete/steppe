@@ -1,6 +1,6 @@
-# YATR 🏞️
+# yatr 🦬
 
-A modern, fast task runner for Rust projects.
+Yet another task runner. But this one's actually good.
 
 ```
 yatr test        # Run tests
